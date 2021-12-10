@@ -21,19 +21,22 @@ const carRunning = [
         "jogador": "pedro",
         "carro": {"velMin": 0, "velMax": 0, "skid": 0},
         "pontos": 0,
-        "nivel": 0
+        "nivel": 0,
+        "nivelHTML": 0
     },
     {   
         "jogador": "juca",
         "carro": {"velMin": 0, "velMax": 0, "skid": 0},
         "pontos": 0,
-        "nivel": 0
+        "nivel": 0,
+        "nivelHTML": 0
     },
     {
         "jogador": "edna",
         "carro": {"velMin": 0, "velMax": 0, "skid": 0},
         "pontos": 0,
-        "nivel": 0
+        "nivel": 0,
+        "nivelHTML": 0
     }
 ]
 
@@ -50,6 +53,23 @@ let modo = "";
 console.log(pedroPrimeiro);
 console.log(pedroSegundo);
 console.log(pedroTerceiro);
+
+
+function preencherArray(){
+    const carrinhoPedro = sorteioCarrinhos();
+    const carrinhoJuca = sorteioCarrinhos();
+    const carrinhoEdna = sorteioCarrinhos();
+
+    carRunning[0].carro.velMin = carrinhoPedro[0];
+    carRunning[0].carro.velMax = carrinhoPedro[1];
+    carRunning[0].carro.skid = carrinhoPedro[2];
+    carRunning[1].carro.velMin = carrinhoJuca[0];
+    carRunning[1].carro.velMax = carrinhoJuca[1];
+    carRunning[1].carro.skid = carrinhoJuca[2];
+    carRunning[2].carro.velMin = carrinhoEdna[0];
+    carRunning[2].carro.velMax = carrinhoEdna[1];
+    carRunning[2].carro.skid = carrinhoEdna[2];
+}
 
 
 
@@ -139,7 +159,6 @@ function teste(item, index){
     }  
 }
 
-
 function calcularNiveis(){
 
     let pontosPedro = carRunning[0].pontos;
@@ -148,77 +167,101 @@ function calcularNiveis(){
     let nivelPedro = carRunning[0].nivel;
 
     if(pontosPedro >= 450 && pontosPedro < 900){
-        carRunning[0].nivel = 1;
+        carRunning[0].nivel = 0.01;
+        carRunning[0].nivelHTML = 1
     }else if(pontosPedro >= 900 && pontosPedro < 1350){
-        carRunning[0].nivel = 2;
+        carRunning[0].nivel = 0.02;
+        carRunning[0].nivelHTML = 2
     }else if(pontosPedro >= 1350 && pontosPedro < 1800){
-        carRunning[0].nivel = 3
+        carRunning[0].nivel = 0.03
+        carRunning[0].nivelHTML = 3
     }else if(pontosPedro >= 1800 && pontosPedro < 2550){
-        carRunning[0].nivel = 4;
+        carRunning[0].nivel = 0.04;
+        carRunning[0].nivelHTML = 4
     }else if(pontosPedro >= 2550 && pontosPedro < 2700){
-        carRunning[0].nivel = 5
+        carRunning[0].nivel = 0.05
+        carRunning[0].nivelHTML = 5
     }else if(pontosPedro >= 2700 && pontosPedro < 3150){
-        carRunning[0].nivel = 6;
+        carRunning[0].nivel = 0.06;
+        carRunning[0].nivelHTML = 6
     }else if(pontosPedro >= 3150 && pontosPedro < 3600){
-        carRunning[0].nivel = 7
+        carRunning[0].nivel = 0.07
+        carRunning[0].nivelHTML = 7
     }else if(pontosPedro >= 3600 && pontosPedro < 4050){
-        carRunning[0].nivel = 8;
+        carRunning[0].nivel = 0.08;
+        carRunning[0].nivelHTML = 8
     }else if(pontosPedro >= 4050 && pontosPedro < 4500){
-        carRunning[0].nivel = 9
+        carRunning[0].nivel = 0.09
+        carRunning[0].nivelHTML = 9
     }else if(pontosPedro >= 4500){
-        carRunning[0].nivel = 10;
+        carRunning[0].nivel = 0.1;
+        carRunning[0].nivelHTML = 10
     }
 
     if(pontosJuca >= 450 && pontosJuca < 900){
-        carRunning[1].nivel = 1;
+        carRunning[1].nivel = 0.01;
+        carRunning[1].nivelHTML = 1
     }else if(pontosJuca >= 900 && pontosJuca < 1350){
-        carRunning[1].nivel = 2;
+        carRunning[1].nivel = 0.02;
+        carRunning[1].nivelHTML = 2
     }else if(pontosJuca >= 1350 && pontosJuca < 1800){
-        carRunning[1].nivel = 3
+        carRunning[1].nivel = 0.03
+        carRunning[1].nivelHTML = 3
     }else if(pontosJuca >= 1800 && pontosJuca < 2550){
-        carRunning[1].nivel = 4;
+        carRunning[1].nivel = 0.04;
+        carRunning[1].nivelHTML = 4
     }else if(pontosJuca >= 2550 && pontosJuca < 2700){
-        carRunning[1].nivel = 5
+        carRunning[1].nivel = 0.05
+        carRunning[1].nivelHTML = 5
     }else if(pontosJuca >= 2700 && pontosJuca < 3150){
-        carRunning[1].nivel = 6;
+        carRunning[1].nivel = 0.06;
+        carRunning[1].nivelHTML = 6
     }else if(pontosJuca >= 3150 && pontosJuca < 3600){
-        carRunning[1].nivel = 7
+        carRunning[1].nivel = 0.07
+        carRunning[1].nivelHTML = 7
     }else if(pontosJuca >= 3600 && pontosJuca < 4050){
-        carRunning[1].nivel = 8;
+        carRunning[1].nivel = 0.08;
+        carRunning[1].nivelHTML = 8
     }else if(pontosJuca >= 4050 && pontosJuca < 4500){
-        carRunning[1].nivel = 9
+        carRunning[1].nivel = 0.09
+        carRunning[1].nivelHTML = 9
     }else if(pontosJuca >= 4500){
-        carRunning[1].nivel = 10;
+        carRunning[1].nivel = 0.1;
+        carRunning[1].nivelHTML = 10
     }
 
         if(pontosEdna >= 450 && pontosEdna < 900){
-        carRunning[2].nivel = 1;
+        carRunning[2].nivel = 0.01;
+        carRunning[2].nivelHTML = 1
     }else if(pontosEdna >= 900 && pontosEdna < 1350){
-        carRunning[2].nivel = 2;
+        carRunning[2].nivel = 0.02;
+        carRunning[2].nivelHTML = 2
     }else if(pontosEdna >= 1350 && pontosEdna < 1800){
-        carRunning[2].nivel = 3
+        carRunning[2].nivel = 0.03
+        carRunning[2].nivelHTML = 3
     }else if(pontosEdna >= 1800 && pontosEdna < 2550){
-        carRunning[2].nivel = 4;
+        carRunning[2].nivel = 0.04;
+        carRunning[2].nivelHTML = 4
     }else if(pontosEdna >= 2550 && pontosEdna < 2700){
-        carRunning[2].nivel = 5
+        carRunning[2].nivel = 0.05
+        carRunning[2].nivelHTML = 5
     }else if(pontosEdna >= 2700 && pontosEdna < 3150){
-        carRunning[2].nivel = 6;
+        carRunning[2].nivel = 0.06;
+        carRunning[2].nivelHTML = 6
     }else if(pontosEdna >= 3150 && pontosEdna < 3600){
-        carRunning[2].nivel = 7
+        carRunning[2].nivel = 0.07
+        carRunning[2].nivelHTML = 7
     }else if(pontosEdna >= 3600 && pontosEdna < 4050){
-        carRunning[2].nivel = 8;
+        carRunning[2].nivel = 0.08;
+        carRunning[2].nivelHTML = 8
     }else if(pontosEdna >= 4050 && pontosEdna < 4500){
-        carRunning[2].nivel = 9
+        carRunning[2].nivel = 0.09
+        carRunning[2].nivelHTML = 9
     }else if(pontosEdna >= 4500){
-        carRunning[2].nivel = 10;
+        carRunning[2].nivel = 0.1;
+        carRunning[2].nivelHTML = 10
     }
 }
-
-
-
-
-
-console.log(carRunning)
 
 function sorteioRaridade(){
 
@@ -266,7 +309,6 @@ function sorteioCarrinhos(){
     return caracteristicas;
 }
 
-
 function menosRodada(){
 
     let totalPedro = 0;
@@ -274,35 +316,15 @@ function menosRodada(){
     let totalEdna = 0;
     modo = "rapida";
 
-    
-    const carrinhoPedro = sorteioCarrinhos();
-    const carrinhoJuca = sorteioCarrinhos();
-    const carrinhoEdna = sorteioCarrinhos();
-
-    carRunning[0].carro.velMin = carrinhoPedro[0];
-    carRunning[0].carro.velMax = carrinhoPedro[1];
-    carRunning[0].carro.skid = carrinhoPedro[2];
-    carRunning[1].carro.velMin = carrinhoJuca[0];
-    carRunning[1].carro.velMax = carrinhoJuca[1];
-    carRunning[1].carro.skid = carrinhoJuca[2];
-    carRunning[2].carro.velMin = carrinhoEdna[0];
-    carRunning[2].carro.velMax = carrinhoEdna[1];
-    carRunning[2].carro.skid = carrinhoEdna[2];
-
-   console.log(carRunning);
+    preencherArray();
 
    for(i = 1; i<=10; i++){
 
         const random = (min, max) => (Math.random() * (max- min) + min);
 
-
-        let voltaPedro = random(carrinhoPedro[0] + carRunning[0].nivel * carrinhoPedro[0], carrinhoPedro[1] + carRunning[0].nivel * carrinhoPedro[1]) * carrinhoPedro[2];
-        // let voltaPedro = random(carrinhoPedro[0], carrinhoPedro[1]) * carrinhoPedro[2];
-        let voltaJuca = random(carrinhoJuca[0] + carRunning[1].nivel * carrinhoJuca[0], carrinhoJuca[1] + carRunning[1].nivel * carrinhoJuca[1]) * carrinhoJuca[2];
-        let voltaEdna = random(carrinhoEdna[0] + carRunning[2].nivel * carrinhoEdna[0], carrinhoPedro[1] + carRunning[2].nivel * carrinhoEdna[1]) * carrinhoEdna[2];
-        // console.log(voltaPedro);
-        // console.log(".")
-        // console.log(voltaPedro2);
+        let voltaPedro = random(carRunning[0].carro.velMin + carRunning[0].nivel * carRunning[0].carro.velMin, carRunning[0].carro.velMax + carRunning[0].nivel * carRunning[0].carro.velMax) * carRunning[0].carro.skid;
+        let voltaJuca = random(carRunning[1].carro.velMin + carRunning[1].nivel * carRunning[1].carro.velMin, carRunning[1].carro.velMax + carRunning[1].nivel * carRunning[1].carro.velMax) * carRunning[1].carro.skid;
+        let voltaEdna = random(carRunning[2].carro.velMin + carRunning[2].nivel * carRunning[2].carro.velMin, carRunning[2].carro.velMax + carRunning[2].nivel * carRunning[2].carro.velMax) * carRunning[2].carro.skid;
 
         if(voltaPedro > voltaJuca && voltaPedro > voltaEdna){
             totalPedro = totalPedro + 1;
@@ -317,93 +339,43 @@ function menosRodada(){
             pedro.innerHTML = totalPedro;
             juca.innerHTML = totalJuca;
             edna.innerHTML = totalEdna;
+            nivelPedro.innerHTML = carRunning[0].nivelHTML;
+            nivelJuca.innerHTML = carRunning[1].nivelHTML;
+            nivelEdna.innerHTML = carRunning[2].nivelHTML;
 
             if(totalPedro > totalJuca && totalPedro > totalEdna){
                 texto.innerHTML = "Ninguém segura o PEDRO";
                 pedroPrimeiro = true
                 if(totalJuca > totalEdna){
-                    console.log("Juca segundo lugar" )
-                    console.log( "Edna terceiro lugar" )
                     jucaSegundo = true;
                     ednaTerceiro = true;
                 }else{
-                    console.log("Edna segundo lugar" )
-                    console.log("Juca terceiro lugar" )
                     ednaSegundo = true;
                     jucaTerceiro = true;
                 }
-
             }else if(totalJuca > totalPedro && totalJuca > totalEdna){
                 texto.innerHTML = "Isso é mamão com açucar para o JUCA";
                 jucaPrimeiro = true;
                 if(totalPedro > totalEdna){
-                    console.log("Pedro segundo lugar")
-                    console.log("Edna terceiro lugar")
                     pedroSegundo = true;
                     ednaTerceiro = true;
                 }else{
-                    console.log("Edna segundo lugar" )
-                    console.log("Pedro terceiro lugar" )
                     ednaSegundo = true;
                     pedroTerceiro = true;
                 }
-
             }else if(totalEdna > totalPedro && totalEdna > totalJuca){
                 texto.innerHTML = "EDNA está botando pra quebrar";
                 ednaPrimeiro = true;
                 if(totalPedro > totalJuca){
-                    console.log("Pedro segundo lugar");
                     jucaTerceiro = true;
                     pedroSegundo = true;
-                    console.log("Juca terceiro lugar"  )
                 }else{
-                    console.log("Juca segundo lugar" )
-                    console.log("Pedro terceiro lugar" )
                     pedroTerceiro = true
                     jucaSegundo = true;
                 }
             }
-
             carRunning.forEach(teste);
-
-            console.log(carRunning[0].pontos)
-
-
-            // console.log(pontosPedro);
-
-            // if((pontosPedro >= 450 && pontosPedro < 650) || (pontosPedro >= 900  && pontosPedro < 1350) || 
-            //   (pontosPedro >= 1350 && pontosPedro < 650) || (pontosPedro >= 1800 && pontosPedro < 650)  || 
-            //   (pontosPedro >= 2250 && pontosPedro < 650) || (pontosPedro >= 2700 && pontosPedro < 650)  || 
-            //   (pontosPedro >= 3150 && pontosPedro < 650) || (pontosPedro >= 3600 && pontosPedro < 650)  || 
-            //   (pontosPedro >= 4050 && pontosPedro < 650) || (pontosPedro >= 4500 && pontosPedro < 650)  ){
-
-            //     carRunning[0].nivel += 1;
-            //     console.log("teste")
-
-            // }else if((pontosPedro >= 450 && pontosPedro < 650) || (pontosPedro >= 900  && pontosPedro < 1350) || 
-            //         (pontosPedro >= 1350 && pontosPedro < 650) || (pontosPedro >= 1800 && pontosPedro < 650)  || 
-            //         (pontosPedro >= 2250 && pontosPedro < 650) || (pontosPedro >= 2700 && pontosPedro < 650)  || 
-            //         (pontosPedro >= 3150 && pontosPedro < 650) || (pontosPedro >= 3600 && pontosPedro < 650)  || 
-            //         (pontosPedro >= 4050 && pontosPedro < 650) || (pontosPedro >= 4500 && pontosPedro < 650)  ){
-            //     carRunning[1].nivel += 1;
-
-            // }else if((pontosPedro >= 450 && pontosPedro < 650) || (pontosPedro >= 900  && pontosPedro < 1350) || 
-            //         (pontosPedro >= 1350 && pontosPedro < 650) || (pontosPedro >= 1800 && pontosPedro < 650)  || 
-            //         (pontosPedro >= 2250 && pontosPedro < 650) || (pontosPedro >= 2700 && pontosPedro < 650)  || 
-            //         (pontosPedro >= 3150 && pontosPedro < 650) || (pontosPedro >= 3600 && pontosPedro < 650)  || 
-            //         (pontosPedro >= 4050 && pontosPedro < 650) || (pontosPedro >= 4500 && pontosPedro < 650)  ){
-            //     carRunning[2].nivel += 1;
-            // }
-
-
- 
             calcularNiveis();
-            
-
-
-            // console.log(pedroPrimeiro);
-            // console.log(pedroSegundo);
-            // console.log(pedroTerceiro);
             pedroPrimeiro = false
             pedroSegundo = false
             pedroTerceiro = false
@@ -413,12 +385,6 @@ function menosRodada(){
             ednaPrimeiro = false;
             ednaSegundo = false;
             ednaTerceiro = false;
-            console.log(modo)
-            console.log(totalEdna)
-            console.log(carRunning[0].nivel);
-            console.log(carRunning[1].nivel);
-            console.log(carRunning[2].nivel);
-
         }
     }
 }
@@ -429,20 +395,16 @@ function mediaRodada(){
     let totalJuca = 0;
     let totalEdna = 0;
     modo = "premio";
-
-    console.log(carRunning);
   
-    const carrinhoPedro = sorteioCarrinhos();
-    const carrinhoJuca = sorteioCarrinhos();
-    const carrinhoEdna = sorteioCarrinhos();
+    preencherArray();
 
     for(i = 1; i<=70; i++){
 
         const random = (min, max) => (Math.random() * (max- min) + min);
 
-        let voltaPedro = random(carrinhoPedro[0], carrinhoPedro[1]) * carrinhoPedro[2];
-        let voltaJuca = random(carrinhoJuca[0], carrinhoJuca[1]) * carrinhoJuca[2];
-        let voltaEdna = random(carrinhoEdna[0], carrinhoEdna[1]) * carrinhoEdna[2];
+        let voltaPedro = random(carRunning[0].carro.velMin + carRunning[0].nivel * carRunning[0].carro.velMin, carRunning[0].carro.velMax + carRunning[0].nivel * carRunning[0].carro.velMax) * carRunning[0].carro.skid;
+        let voltaJuca = random(carRunning[1].carro.velMin + carRunning[1].nivel * carRunning[1].carro.velMin, carRunning[1].carro.velMax + carRunning[1].nivel * carRunning[1].carro.velMax) * carRunning[1].carro.skid;
+        let voltaEdna = random(carRunning[2].carro.velMin + carRunning[2].nivel * carRunning[2].carro.velMin, carRunning[2].carro.velMax + carRunning[2].nivel * carRunning[2].carro.velMax) * carRunning[2].carro.skid;
 
         if(voltaPedro > voltaJuca && voltaPedro > voltaEdna){
             totalPedro = totalPedro + 1;
@@ -457,18 +419,17 @@ function mediaRodada(){
             pedro.innerHTML = totalPedro;
             juca.innerHTML = totalJuca;
             edna.innerHTML = totalEdna;
+            nivelPedro.innerHTML = carRunning[0].nivelHTML;
+            nivelJuca.innerHTML = carRunning[1].nivelHTML;
+            nivelEdna.innerHTML = carRunning[2].nivelHTML;
 
             if(totalPedro > totalJuca && totalPedro > totalEdna){
                 texto.innerHTML = "Pedro não está para brincadeira";
                 pedroPrimeiro = true
                 if(totalJuca > totalEdna){
-                    console.log("Juca segundo lugar" )
-                    console.log( "Edna terceiro lugar" )
                     jucaSegundo = true;
                     ednaTerceiro = true;
                 }else{
-                    console.log("Edna segundo lugar" )
-                    console.log("Juca terceiro lugar" )
                     ednaSegundo = true;
                     jucaTerceiro = true;
                 }
@@ -477,13 +438,9 @@ function mediaRodada(){
                 texto.innerHTML = "Para o JUCA, vencer é uma obrigação";
                 jucaPrimeiro = true;
                 if(totalPedro > totalEdna){
-                    console.log("Pedro segundo lugar")
-                    console.log("Edna terceiro lugar")
                     pedroSegundo = true;
                     ednaTerceiro = true;
                 }else{
-                    console.log("Edna segundo lugar" )
-                    console.log("Pedro terceiro lugar" )
                     ednaSegundo = true;
                     pedroTerceiro = true;
                 }
@@ -492,22 +449,14 @@ function mediaRodada(){
                 texto.innerHTML = "EDNA se tornou lendária";
                 ednaPrimeiro = true;
                 if(totalPedro > totalJuca){
-                    console.log("Pedro segundo lugar");
                     jucaTerceiro = true;
                     pedroSegundo = true;
-                    console.log("Juca terceiro lugar"  )
                 }else{
-                    console.log("Juca segundo lugar" )
-                    console.log("Pedro terceiro lugar" )
                     pedroTerceiro = true
                     jucaSegundo = true;
                 }
             }
-
-
-            
             calcularNiveis();
-
             carRunning.forEach(teste);
             pedroPrimeiro = false
             pedroSegundo = false
@@ -528,21 +477,16 @@ function maximaRodada(){
     let totalJuca = 0;
     let totalEdna = 0;
     modo = "enduro";
-    
-    console.log(carRunning);
-    
-    const carrinhoPedro = sorteioCarrinhos();
-    const carrinhoJuca = sorteioCarrinhos();
-    const carrinhoEdna = sorteioCarrinhos();
-
+        
+    preencherArray()
 
     for(i = 1; i<=160; i++){
 
         const random = (min, max) => (Math.random() * (max- min) + min);
 
-        let voltaPedro = random(carrinhoPedro[0], carrinhoPedro[1]) * carrinhoPedro[2];
-        let voltaJuca = random(carrinhoJuca[0], carrinhoJuca[1]) * carrinhoJuca[2];
-        let voltaEdna = random(carrinhoEdna[0], carrinhoEdna[1]) * carrinhoEdna[2];
+        let voltaPedro = random(carRunning[0].carro.velMin + carRunning[0].nivel * carRunning[0].carro.velMin, carRunning[0].carro.velMax + carRunning[0].nivel * carRunning[0].carro.velMax) * carRunning[0].carro.skid;
+        let voltaJuca = random(carRunning[1].carro.velMin + carRunning[1].nivel * carRunning[1].carro.velMin, carRunning[1].carro.velMax + carRunning[1].nivel * carRunning[1].carro.velMax) * carRunning[1].carro.skid;
+        let voltaEdna = random(carRunning[2].carro.velMin + carRunning[2].nivel * carRunning[2].carro.velMin, carRunning[2].carro.velMax + carRunning[2].nivel * carRunning[2].carro.velMax) * carRunning[2].carro.skid;
 
         if(voltaPedro > voltaJuca && voltaPedro > voltaEdna){
             totalPedro = totalPedro + 1;
@@ -557,18 +501,17 @@ function maximaRodada(){
             pedro.innerHTML = totalPedro;
             juca.innerHTML = totalJuca;
             edna.innerHTML = totalEdna;
+            nivelPedro.innerHTML = carRunning[0].nivelHTML;
+            nivelJuca.innerHTML = carRunning[1].nivelHTML;
+            nivelEdna.innerHTML = carRunning[2].nivelHTML;
 
             if(totalPedro > totalJuca && totalPedro > totalEdna){
                 texto.innerHTML = "Se tiver PEDRO como adversario, desista";
                 pedroPrimeiro = true
                 if(totalJuca > totalEdna){
-                    console.log("Juca segundo lugar" )
-                    console.log( "Edna terceiro lugar" )
                     jucaSegundo = true;
                     ednaTerceiro = true;
                 }else{
-                    console.log("Edna segundo lugar" )
-                    console.log("Juca terceiro lugar" )
                     ednaSegundo = true;
                     jucaTerceiro = true;
                 }
@@ -577,13 +520,9 @@ function maximaRodada(){
                 texto.innerHTML = "Se tiver PEDRO como adversario, desista";
                 jucaPrimeiro = true;
                 if(totalPedro > totalEdna){
-                    console.log("Pedro segundo lugar")
-                    console.log("Edna terceiro lugar")
                     pedroSegundo = true;
                     ednaTerceiro = true;
                 }else{
-                    console.log("Edna segundo lugar" )
-                    console.log("Pedro terceiro lugar" )
                     ednaSegundo = true;
                     pedroTerceiro = true;
                 }
@@ -592,18 +531,13 @@ function maximaRodada(){
                 texto.innerHTML = "É o superman? O batman? A não, é a EDNA";
                 ednaPrimeiro = true;
                 if(totalPedro > totalJuca){
-                    console.log("Pedro segundo lugar");
                     jucaTerceiro = true;
                     pedroSegundo = true;
-                    console.log("Juca terceiro lugar"  )
                 }else{
-                    console.log("Juca segundo lugar" )
-                    console.log("Pedro terceiro lugar" )
                     pedroTerceiro = true
                     jucaSegundo = true;
                 }
             }
-
             calcularNiveis();
             carRunning.forEach(teste);
             pedroPrimeiro = false
